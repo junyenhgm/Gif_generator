@@ -1,9 +1,28 @@
 import imageio
+import os
+# import glob
+
 images = []
+jpgfiles = []
 
-filenames = ['1', '2', '3', '4', '5', '6']
+# arr = os.listdir()
+# print(arr)
 
-for filename in filenames:
-    filename += ".jpg"
+# Using glob is easier to select the file of the same type or with something in common.
+# jpgfiles = []
+# for file in glob.glob("*.jpg"):
+#     jpgfiles.append(file)
+
+
+# Getting the current work directory (cwd)
+thisdir = os.getcwd()
+
+# r=root, d=directories, f = files
+for r, d, f in os.walk(thisdir):
+    for file in f:
+        if file.endswith(".jpg"):
+            jpgfiles.append(file)
+
+for filename in jpgfiles:
     images.append(imageio.imread(filename))
 imageio.mimsave('movie.gif', images, duration=1)
