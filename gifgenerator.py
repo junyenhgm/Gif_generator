@@ -20,7 +20,7 @@ thisdir = os.getcwd()
 # r=root, d=directories, f = files
 for r, d, f in os.walk(thisdir):
     for file in f:
-        if file.endswith(".jpg"):
+        if file.endswith(".jpg") or file.endswith(".png"):
             jpgfiles.append(file)
 
 for filename in jpgfiles:
