@@ -14,14 +14,10 @@ jpgfiles = []
 #     jpgfiles.append(file)
 
 
-# Getting the current work directory (cwd)
-thisdir = os.getcwd()
-
-# r=root, d=directories, f = files
-for r, d, f in os.walk(thisdir):
-    for file in f:
-        if file.endswith(".jpg") or file.endswith(".png"):
-            jpgfiles.append(file)
+files = sorted(os.listdir(), key=lambda v: v.upper())
+for file in files:
+    if file.endswith(".jpg") or file.endswith(".png"):
+        jpgfiles.append(file)
 
 for filename in jpgfiles:
     images.append(imageio.imread(filename))
