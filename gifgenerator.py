@@ -1,18 +1,16 @@
 import imageio
 import os
-# import glob
+
+def Make_from_video():
+    from moviepy.editor import *
+    clip = (VideoFileClip("input.mp4")
+            .subclip((1,22.65),(1,10))
+            .resize(0.3))
+    clip.write_gif("use_your_head.gif")
+
 
 images = []
 jpgfiles = []
-
-# arr = os.listdir()
-# print(arr)
-
-# Using glob is easier to select the file of the same type or with something in common.
-# jpgfiles = []
-# for file in glob.glob("*.jpg"):
-#     jpgfiles.append(file)
-
 
 files = sorted(os.listdir(), key=lambda v: v.upper())
 for file in files:
